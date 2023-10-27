@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div id="main-div">
+        <h1>BMI Calculator</h1>
+        <p>Height in centimetres:</p> <input id="id-height" />
+        <hr />
+        <p>Weight in kg's:</p> <input id="id-weight" />
+        <hr />
+        <p id="demo">BMI</p>
+        <button
+          id="btn"
+          onClick={() => {
+            const factor = 10000;
+            let height = document.getElementById("id-height").value;
+            let weight = document.getElementById("id-weight").value;
+            document.getElementById("demo").innerHTML = `<Fragment>
+          <h1>BMI : ${(weight / height / height) * factor}</h1>
+          <hr />
+          </Fragment>`;
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          click
+        </button>
+      </div>
+      <img src="bmi-chart.PNG" alt="chart" width="300" height="250" />
+    </>
   );
 }
 
